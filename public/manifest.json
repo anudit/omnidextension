@@ -1,0 +1,42 @@
+{
+  "name": "Omnid",
+  "description": "Omnid",
+  "version": "1.0.0",
+  "manifest_version": 3,
+  "background": {
+    "service_worker": "build/background.js"
+  },
+  "action": {
+    "default_icon": "logo.png",
+    "default_title": "Popup",
+    "default_popup": "popup.html"
+  },
+  "icons": {
+    "128": "logo.png",
+    "192": "logo192.png",
+    "512": "logo512.png"
+  },
+  "permissions": ["activeTab", "scripting", "storage"],
+  "content_scripts": [
+    {
+      "matches": ["http://*/*", "https://*/*", "<all_urls>"],
+      "js": ["build/content.js"]
+    }
+  ],
+  "web_accessible_resources": [
+    {
+      "resources": ["logo.png"],
+      "matches": []
+    }
+  ],
+  "commands": {
+    "_execute_action": {
+      "suggested_key": {
+        "windows": "Alt+Shift+O",
+        "mac": "Alt+Shift+O",
+        "chromeos": "Alt+Shift+O",
+        "linux": "Alt+Shift+O"
+      }
+    }
+  }
+}
